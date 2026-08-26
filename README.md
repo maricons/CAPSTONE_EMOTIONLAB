@@ -8,8 +8,6 @@ Un espacio en Realidad Virtual para regular las emociones de adolescentes antes 
 
 Tradicionalmente los colegios dependen de observaciones subjetivas o encuestas manuales que no logran capturar la experiencia real del estudiante en tiempo real. EmotionLab combina un entorno inmersivo en VR con captura y análisis de datos para entregar información objetiva que apoye la toma de decisiones pedagógicas.
 
-El proyecto se implementa con una muestra representativa de estudiantes de Enseñanza Media en un colegio de la comuna de Viña del Mar.
-
 ## 🧠 El problema
 
 - Los y las estudiantes casi nunca se preparan emocionalmente para momentos de alta exigencia (exponer, evaluarse, presentar), solo los viven el día del evento.
