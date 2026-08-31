@@ -31,20 +31,4 @@ Los datos capturados se transmiten de forma segura y anonimizada hacia la nube, 
 - **GitHub**, para el control de versiones del proyecto y la gestión ágil del trabajo del equipo mediante un tablero Kanban (GitHub Projects).
 - **Carta Gantt**, como herramienta complementaria de planificación temporal de alto nivel a lo largo de las distintas fases del proyecto.
 
-## Estructura de Carpetas — Fase 1
-
-```
-Fase 1/
-├── Evidencias Grupales/
-│   ├── 1.4_APT122_FormativaFase1.docx                                          → Informe Técnico de Definición de Proyecto APT
-│   ├── 1.5_GuiaEstudiante_Fase 1_Definicion Proyecto APT (Español).docx        → Guía de Definición de Proyecto APT, versión en español
-│   ├── 1.5_GuiaEstudiante_Fase 1_Definicion Proyecto APT (Inglés).docx         → Guía de Definición de Proyecto APT, versión en inglés
-│   └── Presentación Proyecto.pptx                                              → Pitch / presentación del proyecto
-│
-└── Evidencias Individuales/
-    ├── Kathleen Ampuero (1.1 Autoevaluación de Competencias, 1.2 Diario de Reflexión, 1.3 Autoevaluación Fase 1)
-    ├── Katalina Pérez  (1.1 Autoevaluación de Competencias, 1.2 Diario de Reflexión, 1.3 Autoevaluación Fase 1)
-    └── Constanza Quiero (1.1 Autoevaluación de Competencias, 1.2 Diario de Reflexión, 1.3 Autoevaluación Fase 1)
-```
-
-Esta semana la evaluación considera únicamente la Fase 1 del proyecto.
+## Estructura de Carpetas — Fase 2
