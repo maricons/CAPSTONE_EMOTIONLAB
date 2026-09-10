@@ -4,6 +4,28 @@ Proyecto Capstone — Ingeniería en Informática, Duoc UC (sede Viña del Mar)
 
 Repositorio: https://github.com/maricons/CAPSTONE_EMOTIONLAB
 
+<p>
+  <img src="https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white" alt="Unity">
+  <img src="https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white" alt="C#">
+  <img src="https://img.shields.io/badge/Meta%20Quest-0467DF?style=for-the-badge&logo=meta&logoColor=white" alt="Meta Quest">
+  <img src="https://img.shields.io/badge/Universal%20RP-000000?style=for-the-badge&logo=unity&logoColor=white" alt="Universal Render Pipeline">
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white" alt="AWS">
+  <img src="https://img.shields.io/badge/API%20Gateway-FF4F8B?style=for-the-badge&logo=amazonapigateway&logoColor=white" alt="Amazon API Gateway">
+  <img src="https://img.shields.io/badge/Lambda-FF9900?style=for-the-badge&logo=awslambda&logoColor=white" alt="AWS Lambda">
+  <img src="https://img.shields.io/badge/S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white" alt="Amazon S3">
+  <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub%20Projects-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Projects">
+  <img src="https://img.shields.io/badge/Kanban-0052CC?style=for-the-badge&logo=trello&logoColor=white" alt="Kanban">
+</p>
+
 ## Contexto
 
 **EmotionLAB es un proyecto de continuidad.** Existe una versión previa de EmotionLAB orientada a estudiantes de **educación superior**. Esta fase toma ese proyecto y lo reorienta a **estudiantes de Enseñanza Media (adolescentes)**, incorporando **gamificación** en la experiencia.
@@ -36,10 +58,10 @@ No es un diagnóstico clínico ni reemplaza el trabajo del docente: es evidencia
 ### El recorrido
 
 1. **Sala de espera** — check-in inicial y ambientación.
-2. **Ejercicio de respiración guiada** — antes de exponer, para regular el nivel de activación.
-3. **Instancia de exposición / entrevista** — el escenario de exigencia.
-4. **Minijuego de recolección de patitos** — cierre gamificado en una sala *cozy*, como espacio de descompresión positiva.
-5. **Check-in final** — registro de cierre de la experiencia.
+2. **1ª presentación** (sala pequeña) — con ejercicio de respiración guiada previo, para regular el nivel de activación.
+3. **2ª presentación** (Oficina, con audiencia) — mayor exigencia, con su propia respiración guiada previa.
+4. **Retroalimentación** — ejercicio final de respiración guiada y una encuesta breve de autorreporte sobre cómo se siente el estudiante tras la experiencia.
+5. **Cierre** — al responder la encuesta se pasa a una escena distinta: un minijuego de recolección de patitos en una sala *cozy*, como espacio de descompresión positiva con el que termina la experiencia.
 
 Todo el recorrido queda registrado mediante telemetría, permitiendo comparar el comportamiento del estudiante antes y después de la instancia. Los datos se transmiten de forma **segura y anonimizada** hacia la nube, donde el equipo de IA los procesa. Al tratarse de estudiantes adolescentes, la privacidad se resguarda en todo momento: ningún dato identifica a un estudiante y cada apoderado autoriza la participación mediante consentimiento informado.
 
@@ -48,9 +70,37 @@ Todo el recorrido queda registrado mediante telemetría, permitiendo comparar el
 | Área | Herramientas |
 |---|---|
 | Experiencia VR | **Unity** (URP) · **visores Meta Quest** (standalone) |
-| Nube y datos | **AWS** · **AWS Lambda** · **Terraform** (infraestructura como código) |
+| Nube y datos | **Amazon API Gateway** · **AWS Lambda** · **Amazon S3** |
+| Infraestructura | **Terraform** (infraestructura como código) · **AWS Academy Learner Lab** |
 | Gestión y versionamiento | **GitHub** (control de versiones y ramas) · **GitHub Projects** (tablero Kanban) |
 | Planificación | **Carta Gantt** de 13 semanas |
+
+## Arquitectura de datos
+
+La telemetría es responsabilidad de nuestro equipo: la aplicación captura los datos comportamentales durante el recorrido y los transmite a la nube mediante una API. La arquitectura es **serverless** y está descrita íntegramente como código con Terraform.
+
+```
+  Meta Quest (app Unity)
+          │  HTTPS / JSON
+          ▼
+  Amazon API Gateway     puerta de entrada única
+          ▼
+  AWS Lambda             procesamiento de las sesiones
+          ▼
+  Amazon S3              sesiones en JSON, organizadas por fecha
+          ▼
+  Equipo de IA           modelo de clasificación y dashboard
+```
+
+### Decisiones de diseño
+
+- **Serverless en vez de un servidor tradicional.** No hay infraestructura encendida de forma permanente: se paga solo por el tiempo de ejecución de cada petición, y no hay sistema operativo que mantener ni parchear.
+- **Responsabilidades separadas.** La lógica está dividida en funciones independientes, de modo que un error en una no deja sin servicio al resto y cada integrante puede intervenir una parte sin arriesgar las demás.
+- **S3 en lugar de una base de datos relacional.** Los datos que produce Unity son semiestructurados (métricas, tiempos y registros de interacción en JSON); guardarlos como archivos particionados por fecha evita una capa de modelado relacional que el caso no necesita, con alta durabilidad y costo mínimo.
+- **API Gateway como puerta de entrada única.** La aplicación en Unity nunca conoce el bucket ni las funciones: solo consume un endpoint HTTPS. Esto permite que más adelante un dashboard web consuma la misma API sin cambios de infraestructura.
+- **Infraestructura como código con Terraform.** Todo el entorno se recrea con un solo comando en cualquier cuenta de AWS, y el propio código actúa como documentación técnica de qué recursos existen y cómo se conectan.
+
+La infraestructura corre sobre una cuenta de **AWS Academy Learner Lab**, cuyas credenciales son temporales. Esa es la razón por la que el entorno de datos se activa **por sesión de trabajo** y no de forma continua.
 
 ## Metodología
 
@@ -75,7 +125,7 @@ Duración total: **13 semanas** (inicio: semana del 10 de agosto de 2026).
 | Diseño e implementación VR | Fase 2 | S5 – S9 | 07-sep a 11-oct |
 | Arquitectura de datos | Fase 2 | S5 – S8 | 07-sep a 04-oct |
 | Consentimientos informados | Fase 2 | S5 – S6 | 07-sep a 20-sep |
-| Pruebas de campo | Fase 2 | S9 – S11 | 05-oct a 25-oct |
+| Pruebas de campo | Fase 2 | S8 – S11 | 28-sep a 25-oct |
 | Transmisión de datos a AWS | Fase 2 | S10 – S11 | 12-oct a 25-oct |
 | Cierre y defensa final | Fase 3 | S12 – S13 | 26-oct a 08-nov |
 
@@ -87,7 +137,7 @@ Coordinación con el colegio    |           ██ ██ |     ██          
 Diseño e implementación VR     |                 |     ██ ██ ██ ██ ██         |
 Arquitectura de datos          |                 |     ██ ██ ██ ██            |
 Consentimientos informados     |                 |     ██ ██                  |
-Pruebas de campo               |                 |              ██ ██  ██     |
+Pruebas de campo               |                 |           ██ ██ ██  ██     |
 Transmisión de datos a AWS     |                 |                 ██  ██     |
 Cierre y defensa final         |                 |                            |  ██  ██
 ```
@@ -97,7 +147,7 @@ Cierre y defensa final         |                 |                            | 
 | # | Hito | Estado |
 |---|---|---|
 | 1 | Diseño de la experiencia definido (escenarios, recorrido, gamificación, paleta) | En curso |
-| 2 | Arquitectura de datos definida y documentada | En curso |
+| 2 | Arquitectura de datos definida y documentada | Completado |
 | 3 | Cuentas y servicios en AWS operativos, listos para el acople del equipo de IA | En curso |
 | 4 | Documentación formal (Acta de Constitución, Especificación de Requerimientos) | Completado |
 | 5 | Tablero Kanban con el avance por fase | Completado |
