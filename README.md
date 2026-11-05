@@ -1,6 +1,6 @@
 # EmotionLAB VR
 
-Proyecto Capstone — Ingeniería en Informática, Duoc UC (sede Viña del Mar)
+Proyecto Capstone — Ingeniería en Informática, Duoc UC (sede Viña del Mar).
 
 Repositorio: https://github.com/maricons/CAPSTONE_EMOTIONLAB
 
