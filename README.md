@@ -163,7 +163,7 @@ Disponible en `Fase 2/Evidencias Proyecto/Evidencias de documentación/`:
 2. **App:** abrir el [repositorio de desarrollo](https://github.com/KatalinaPerez/EmotionLab) con Unity 2022.3.62f2, configurar `apiUrl` en `EmotionDataManager` con la URL que entrega Terraform y compilar para Android, o instalar directamente `EmotionLab.apk` con `adb install -r EmotionLab.apk`.
 3. **Probar:** completar el recorrido en el visor y verificar el JSON en la carpeta de la fecha del bucket S3.
 
-El detalle está en el Manual Técnico. EmotionLAB no usa Docker: el backend es serverless y su despliegue reproducible lo entrega Terraform.
+El detalle está en el Manual Técnico.
 
 ## Metodología
 
