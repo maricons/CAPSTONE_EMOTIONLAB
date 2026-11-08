@@ -55,10 +55,10 @@ Es una **herramienta complementaria**: sitúa al estudiante en una situación de
 
 ### El recorrido
 
-1. **Sala de espera**: check-in inicial y ambientación.
-2. **1ª presentación** (sala pequeña), con respiración guiada previa.
-3. **2ª presentación** (oficina, con audiencia): mayor exigencia, con su propia respiración guiada.
-4. **Retroalimentación**: respiración guiada final y encuesta breve de autorreporte.
+1. **Sala de espera**: el estudiante elige el tema de su presentación y responde el formulario inicial sobre cómo se siente.
+2. **Oficina (modo fácil)**: presentación ante una sola persona, con respiración guiada previa e interrupciones como ruido y la falla simulada del computador.
+3. **Salón (modo difícil)**: presentación ante más público y con más distracciones, también con respiración guiada previa.
+4. **Retroalimentación**: respiración guiada y formulario final, que permite comparar el estado emocional del inicio y del final.
 5. **Cierre**: minijuego de recolección de patitos en una sala *cozy*, como descompresión positiva.
 
 Todo el recorrido queda registrado de forma **anónima**: ningún dato identifica a un estudiante y cada apoderado autoriza la participación mediante consentimiento informado.
@@ -140,7 +140,9 @@ La arquitectura es **serverless** y está descrita íntegramente como código co
 }
 ```
 
-Identificador anónimo y edad por rango; no se almacena nombre, RUT ni correo.
+Identificador anónimo y edad elegida de una lista, sin fecha de nacimiento; no se almacena nombre, RUT ni correo.
+
+El formulario inicial pregunta la edad y, en una escala de 9 caritas que van del verde al rojo: ¿Cómo te sientes hoy?, ¿Te sientes nervioso?, ¿Te sientes preocupado? y ¿Te sientes preparado? El formulario final de la retroalimentación vuelve a registrar el estado emocional para comparar el inicio con el final.
 
 ## Documentación técnica
 
