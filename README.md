@@ -84,9 +84,9 @@ Todo el recorrido queda registrado de forma **anónima**: ningún dato identific
 | Cobertura de pruebas de campo (OE3) | ≥ 20 estudiantes | ✅ 27 registros |
 | RNF-010 Duración de sesión | 10 a 15 min | ≈ 20 min promedio |
 | RNF-009 Usabilidad | ≥ 90 % sin asistencia | La mayoría requirió asistencia |
-| RNF-001 Rendimiento | ≥ 72 FPS | En medición |
+| RNF-001 Rendimiento | ≥ 72 FPS | Cumple parcialmente: 72 FPS en la mayor parte del recorrido, con caídas en las presentaciones |
 
-**Hallazgos en terreno:** a los estudiantes les cuesta encontrar los formularios de inicio y cierre y el botón «Siguiente» de las láminas, y ante la falla simulada del PC se quedan quietos sin saber qué hacer. La respiración guiada funciona sin ayuda. Estos hallazgos forman el backlog de usabilidad: señalización visual y un tutorial inicial.
+**Hallazgos en terreno:** a los estudiantes les cuesta encontrar los formularios de inicio y cierre y el botón «Siguiente» de las láminas, y ante la falla simulada del PC se quedan quietos sin saber qué hacer. La respiración guiada funciona sin ayuda. La medición con OVR Metrics Tool muestra 72 FPS en la mayor parte del recorrido, con caídas durante las presentaciones. Estos hallazgos forman el backlog de mejoras: señalización visual, un tutorial inicial y la optimización de las escenas de presentación.
 
 ## Tecnologías
 
@@ -142,7 +142,7 @@ La arquitectura es **serverless** y está descrita íntegramente como código co
 
 Identificador anónimo y edad elegida de una lista, sin fecha de nacimiento; no se almacena nombre, RUT ni correo.
 
-El formulario inicial pregunta la edad y, en una escala de 9 caritas que van del verde al rojo: ¿Cómo te sientes hoy?, ¿Te sientes nervioso?, ¿Te sientes preocupado? y ¿Te sientes preparado? El formulario final de la retroalimentación vuelve a registrar el estado emocional para comparar el inicio con el final.
+El formulario inicial pregunta la edad y, en una escala de 9 caritas que van del verde al rojo: ¿Cómo te sientes hoy?, ¿Te sientes nervioso?, ¿Te sientes preocupado? y ¿Te sientes preparado?; además pregunta el género, con una opción para no responder El formulario final de la retroalimentación vuelve a registrar el estado emocional para comparar el inicio con el final.
 
 ## Documentación técnica
 
@@ -254,6 +254,7 @@ Fase 2/
     └── Evidencias de Sistema/
         ├── EmotionLab.apk                                                   ✅ Build v0.1.0 (Git LFS)
         ├── Arquitectura *.jpeg / *.jpg                                      ✅ Diagramas de arquitectura
+        ├── Evidencias Métricas/                                             ✅ Videos de la medición de FPS (OVR Metrics Tool)
         ├── Aplicación/                                                      ✅ Código C# propio (Codigo Unity/)
         └── Base de datos/                                                   ✅ Modelo de datos JSON y decisiones
 
