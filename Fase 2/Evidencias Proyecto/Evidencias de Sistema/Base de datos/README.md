@@ -24,6 +24,8 @@ Ejemplo completo: [`modelo_datos_sesion.json`](modelo_datos_sesion.json).
 | `preocupacion` | ¿Te sientes preocupado? | Escala de 9 caritas (1 a 9), del verde al rojo |
 | `preparacion` | ¿Te sientes preparado? | Escala de 9 caritas (1 a 9), del verde al rojo |
 
+El formulario incluye además la pregunta «¿Con qué género te identificas?», con alternativas cerradas y una opción para no responder.
+
 `respuestaLabel` guarda el valor elegido y `respuestaIndex` su posición en la lista de opciones. El formulario final de la retroalimentación vuelve a registrar el estado emocional con la misma escala, para comparar el inicio con el final de la sesión.
 
 **Decisiones de diseño**
