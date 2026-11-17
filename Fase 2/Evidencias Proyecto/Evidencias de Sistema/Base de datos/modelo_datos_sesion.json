@@ -1,0 +1,36 @@
+{
+  "idParticipante": "participante_20260930_220039_c947b9ff",
+  "fechaInicio": "2026-09-30 22:00:39",
+  "fechaFin": "2026-09-30 22:15:38",
+  "difficulty_level": "dificil",
+  "facilCompletado": true,
+  "dificilCompletado": true,
+  "retryUsado": false,
+  "ultimoModoCompletado": "dificil",
+  "respuestas": [
+    {
+      "escena": "waiting_room_inicial",
+      "idPregunta": "edad",
+      "textoPregunta": "¿Cuál es tu edad?",
+      "respuestaLabel": "+17",
+      "respuestaIndex": 5,
+      "timestamp": "2026-09-30 22:02:16.359"
+    },
+    {
+      "escena": "waiting_room_inicial",
+      "idPregunta": "nerviosismo",
+      "textoPregunta": "¿Te sientes nervioso?",
+      "respuestaLabel": "7",
+      "respuestaIndex": 2,
+      "timestamp": "2026-09-30 22:02:19.725"
+    }
+  ],
+  "eventos": [
+    {
+      "nombre": "breathing_technique_used",
+      "fase": "completado",
+      "payload": null,
+      "timestamp": "2026-09-30 22:04:51.120"
+    }
+  ]
+}

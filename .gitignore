@@ -1,3 +1,6 @@
 ~$*
 *.tmp
 Thumbs.db
+
+/Assets/
+*.apk
