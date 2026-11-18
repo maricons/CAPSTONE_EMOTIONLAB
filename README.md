@@ -18,6 +18,7 @@ Repositorio de desarrollo (proyecto Unity completo e historial): https://github.
   <img src="https://img.shields.io/badge/API%20Gateway-FF4F8B?style=for-the-badge&logo=amazonapigateway&logoColor=white" alt="Amazon API Gateway">
   <img src="https://img.shields.io/badge/Lambda-FF9900?style=for-the-badge&logo=awslambda&logoColor=white" alt="AWS Lambda">
   <img src="https://img.shields.io/badge/S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white" alt="Amazon S3">
+  <img src="https://img.shields.io/badge/DynamoDB-4053D6?style=for-the-badge&logo=amazondynamodb&logoColor=white" alt="Amazon DynamoDB">
   <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
 </p>
@@ -38,7 +39,7 @@ Somos el **equipo de desarrollo y diseño de la aplicación** y las responsables
 
 | Equipo | Responsabilidad |
 |---|---|
-| **Nuestro equipo** | **Desarrollo y diseño de la aplicación**: la experiencia de realidad virtual completa (escenarios, recorrido, gamificación e identidad visual), más la **telemetría**: captura y transmisión de los datos comportamentales hacia la nube mediante API. |
+| **Nuestro equipo** | **Desarrollo y diseño de la aplicación**: la experiencia de realidad virtual completa (escenarios, viaje del usuario, gamificación e identidad visual), más la **telemetría**: captura y transmisión de los datos comportamentales hacia la nube mediante API. |
 | **Equipo de IA** | **Modelo, clasificación y dashboard**: procesa los datos, los clasifica y genera los insights que se presentan al docente o psicopedagogo. |
 
 ## El problema
@@ -51,9 +52,9 @@ Además, el docente o psicopedagogo no cuenta con **evidencia comportamental** q
 
 > EmotionLAB **no convierte la emoción en información**. Convierte los **datos comportamentales** en datos útiles para la toma de decisiones del profesor o psicopedagogo.
 
-Es una **herramienta complementaria**: sitúa al estudiante en una situación de exigencia y, a partir de los datos registrados durante el recorrido, permite clasificar si **regula o no regula** sus emociones en esa situación. No es un diagnóstico clínico ni reemplaza el trabajo del docente.
+Es una **herramienta complementaria**: sitúa al estudiante en una situación de exigencia y, a partir de los datos registrados durante el viaje del usuario, permite clasificar si **regula o no regula** sus emociones en esa situación. No es un diagnóstico clínico ni reemplaza el trabajo del docente.
 
-### El recorrido
+### El viaje del usuario
 
 1. **Sala de espera**: el estudiante elige el tema de su presentación y responde el formulario inicial sobre cómo se siente.
 2. **Oficina (modo fácil)**: presentación ante una sola persona, con respiración guiada previa e interrupciones como ruido y la falla simulada del computador.
@@ -61,18 +62,19 @@ Es una **herramienta complementaria**: sitúa al estudiante en una situación de
 4. **Retroalimentación**: respiración guiada y formulario final, que permite comparar el estado emocional del inicio y del final.
 5. **Cierre**: minijuego de recolección de patitos en una sala *cozy*, como descompresión positiva.
 
-Todo el recorrido queda registrado de forma **anónima**: ningún dato identifica a un estudiante y cada apoderado autoriza la participación mediante consentimiento informado.
+Todo el viaje del usuario queda registrado de forma **anónima**: ningún dato identifica a un estudiante y cada apoderado autoriza la participación mediante consentimiento informado.
 
 ## Estado del proyecto
 
 | Componente | Estado |
 |---|---|
-| Experiencia VR (APK v0.1.0, recorrido completo) | ✅ Completado |
+| Experiencia VR (APK v0.1.0, viaje completo del usuario) | ✅ Completado |
 | Infraestructura AWS con Terraform | ✅ Completado |
-| Pruebas de campo (desde el 5 de octubre) | 🟡 En curso: 27 registros de estudiantes |
+| Pruebas de campo (del 5 de octubre al 1 de noviembre) | ✅ Completado: 27 registros de estudiantes |
 | Informe final (2.6, español e inglés) | ✅ Completado |
-| Evaluación formativa con el docente | 🟡 9 de noviembre |
-| Defensa ante la comisión | 🟡 14 de noviembre |
+| Evaluación formativa con el docente | ✅ 9 de noviembre |
+| Presentación final (Fase 3) | ✅ 16 de noviembre |
+| Transmisión de datos al equipo de IA | 🟡 En curso |
 
 ### Resultados
 
@@ -84,16 +86,16 @@ Todo el recorrido queda registrado de forma **anónima**: ningún dato identific
 | Cobertura de pruebas de campo (OE3) | ≥ 20 estudiantes | ✅ 27 registros |
 | RNF-010 Duración de sesión | 10 a 15 min | ≈ 20 min promedio |
 | RNF-009 Usabilidad | ≥ 90 % sin asistencia | La mayoría requirió asistencia |
-| RNF-001 Rendimiento | ≥ 72 FPS | Cumple parcialmente: 72 FPS en la mayor parte del recorrido, con caídas en las presentaciones |
+| RNF-001 Rendimiento | ≥ 72 FPS | Cumple parcialmente: 72 FPS en la mayor parte del viaje del usuario, con caídas en las presentaciones |
 
-**Hallazgos en terreno:** a los estudiantes les cuesta encontrar los formularios de inicio y cierre y el botón «Siguiente» de las láminas, y ante la falla simulada del PC se quedan quietos sin saber qué hacer. La respiración guiada funciona sin ayuda. La medición con OVR Metrics Tool muestra 72 FPS en la mayor parte del recorrido, con caídas durante las presentaciones. Estos hallazgos forman el backlog de mejoras: señalización visual, un tutorial inicial y la optimización de las escenas de presentación.
+**Hallazgos en terreno:** a los estudiantes les cuesta encontrar los formularios de inicio y cierre y el botón «Siguiente» de las láminas, y ante la falla simulada del PC se quedan quietos sin saber qué hacer. La respiración guiada funciona sin ayuda. La medición con OVR Metrics Tool muestra 72 FPS en la mayor parte del viaje del usuario, con caídas durante las presentaciones. Estos hallazgos forman el backlog de mejoras: señalización visual, un tutorial inicial y la optimización de las escenas de presentación.
 
 ## Tecnologías
 
 | Área | Herramientas |
 |---|---|
 | Experiencia VR | **Unity 2022.3** (URP) · C# · **visores Meta Quest** (standalone) |
-| Nube y datos | **Amazon API Gateway** · **AWS Lambda** (Python) · **Amazon S3** · **IAM** |
+| Nube y datos | **Amazon API Gateway** · **AWS Lambda** (Python) · **Amazon S3** · **Amazon DynamoDB** · **IAM** |
 | Infraestructura | **Terraform** (infraestructura como código) · **AWS Academy Learner Lab** |
 | Gestión y versiones | **GitHub** (ramas y pull requests) · **GitHub Projects** (Kanban) · **Git LFS** (APK) |
 
@@ -109,9 +111,9 @@ La arquitectura es **serverless** y está descrita íntegramente como código co
           ▼
   Amazon API Gateway       puerta de entrada única
           ▼
-  AWS Lambda (IAM)         crear · obtener · modificar JSON
-          ▼
-  Amazon S3                sesiones en JSON
+  AWS Lambda (IAM)
+    ├─ Métricas            crear · obtener · modificar JSON  →  Amazon S3
+    └─ Sesiones            crear · consultar · confirmar     →  Amazon DynamoDB (PIN)
           ▼
   Equipo de IA             modelo de clasificación y dashboard
 ```
@@ -120,6 +122,7 @@ La arquitectura es **serverless** y está descrita íntegramente como código co
 
 - **Serverless en vez de un servidor tradicional.** No hay infraestructura encendida de forma permanente ni sistema operativo que parchear; se paga por invocación.
 - **S3 en lugar de una base de datos relacional.** Los datos son semiestructurados (JSON por sesión) y no requieren joins.
+- **DynamoDB para las sesiones.** Cada sesión se crea en el visor con un PIN; el especialista lo ingresa en el dashboard para confirmarla e iniciar la experiencia, y el estado se guarda en DynamoDB.
 - **API Gateway como puerta de entrada única.** La app nunca conoce el bucket ni las funciones; un dashboard web puede consumir la misma API sin cambios.
 - **Guardado local primero.** Cada sesión se guarda como JSON en el visor y luego se sincroniza con S3, para no perder datos si el entorno de AWS no está activo.
 - **Infraestructura como código con Terraform.** Todo el entorno se recrea con un comando. Se probó en un caso real: el **29 de octubre** se perdió el acceso a la cuenta de AWS y la arquitectura se recreó en una cuenta nueva en pocos minutos. Los JSON de la cuenta anterior no se pudieron rescatar, por lo que se incorpora el respaldo periódico fuera de AWS.
@@ -163,7 +166,7 @@ Disponible en `Fase 2/Evidencias Proyecto/Evidencias de documentación/`:
 
 1. **Nube:** iniciar AWS Academy Learner Lab, exportar las credenciales temporales y ejecutar `terraform init` y `terraform apply`.
 2. **App:** abrir el [repositorio de desarrollo](https://github.com/KatalinaPerez/EmotionLab) con Unity 2022.3.62f2, configurar `apiUrl` en `EmotionDataManager` con la URL que entrega Terraform y compilar para Android, o instalar directamente `EmotionLab.apk` con `adb install -r EmotionLab.apk`.
-3. **Probar:** completar el recorrido en el visor y verificar el JSON en la carpeta de la fecha del bucket S3.
+3. **Probar:** completar el viaje del usuario en el visor y verificar el JSON en la carpeta de la fecha del bucket S3.
 
 El detalle está en el Manual Técnico.
 
@@ -175,7 +178,7 @@ Metodología ágil **Kanban en GitHub Projects** (Backlog → To do → In progr
 
 ## Cronograma
 
-Duración total: **13 semanas** (inicio: semana del 10 de agosto de 2026).
+Duración total: **18 semanas**, del 10 de agosto al 13 de diciembre de 2026. Fase 1: S1 – S4 · Fase 2: S5 – S13 · Fase 3: S14 – S18.
 
 | Actividad | Semanas | Estado |
 |---|---|---|
@@ -184,23 +187,23 @@ Duración total: **13 semanas** (inicio: semana del 10 de agosto de 2026).
 | Diseño e implementación VR | S5 – S9 | ✅ Completado |
 | Arquitectura de datos (AWS + Terraform) | S5 – S8 | ✅ Completado |
 | Consentimientos informados | S5 – S7 | ✅ Completado |
-| Pruebas de campo | S9 – S13 | 🟡 En curso (desde el 5 de octubre) |
-| Transmisión de datos a AWS | S10 – S13 | 🟡 En curso |
-| Cierre y defensa final | S12 – S13 | 🟡 En curso |
+| Pruebas de campo | S9 – S12 | ✅ Completado (27 estudiantes) |
+| Transmisión de datos a AWS | S10 – S15 | 🟡 En curso |
+| Cierre y defensa final | S14 – S18 | 🟡 En curso |
 
-Las pruebas de campo se extendieron a la Fase 3 por la confirmación tardía de los colegios.
+Las pruebas de campo se extendieron por la confirmación tardía de los colegios. La transmisión de datos sigue en curso porque, tras el problema con la cuenta de AWS, el equipo de IA tuvo que procesar parte de los datos de forma manual.
 
 ## Hitos del proyecto
 
 | # | Hito | Estado |
 |---|---|---|
 | 1 | Documentación formal (Acta de Constitución, ERS v2.0) | ✅ Completado |
-| 2 | Diseño de la experiencia (escenarios, recorrido, gamificación, identidad visual) | ✅ Completado |
+| 2 | Diseño de la experiencia (escenarios, viaje del usuario, gamificación, identidad visual) | ✅ Completado |
 | 3 | Prototipo funcional VR: APK v0.1.0 | ✅ Completado |
 | 4 | Arquitectura de datos definida, desplegada y documentada | ✅ Completado |
 | 5 | Servicios AWS operativos para el acople del equipo de IA | ✅ Completado |
 | 6 | Tablero Kanban con el avance por fase | ✅ Completado |
-| 7 | Pruebas de campo en dos establecimientos | 🟡 En curso |
+| 7 | Pruebas de campo en dos establecimientos | ✅ Completado |
 
 ## Equipo
 
@@ -262,11 +265,14 @@ Fase 3/
 ├── Evidencias Individuales/
 │   ├── Quiero_Constanza_3.1_APT122_DiarioReflexionFase3.docx                ✅
 │   ├── Perez_Katalina_3.1_APT122_DiarioReflexionFase3.docx                  🟡
-│   └── Ampuero_Kathleen_3.1_APT122_DiarioReflexionFase3.docx                🟡
+│   ├── Ampuero_Kathleen_3.1_APT122_DiarioReflexionFase3.docx                🟡
+│   ├── Quiero_Constanza_3.2_APT122_AutoevaluacionFase3.docx                 ✅
+│   ├── Perez_Katalina_3.2_APT122_AutoevaluacionFase3.docx                   🟡
+│   └── Ampuero_Kathleen_3.2_APT122_AutoevaluacionFase3.docx                 🟡
 └── Evidencias Grupales/
-    ├── PLANILLA DE EVALUACIÓN FASE 3.xlsx                                   🟡 (enviada por correo)
-    ├── Presentación Final del proyecto (Español).pptx                       🟡 (comisión 14-nov)
-    └── Presentación Final del proyecto (Inglés).pptx                        Opt.
+    ├── PLANILLA DE EVALUACIÓN FASE 3.xlsx                                   ✅ (enviada por correo)
+    ├── Presentación Final del proyecto (Español).pptx                       ✅
+    └── Presentación Final del proyecto (Inglés).pptx                        ✅
 
 Packages/  ProjectSettings/                                                  → Configuración del proyecto Unity
 ```
